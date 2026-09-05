@@ -2,6 +2,7 @@
 // ECE 3574 Exercise: Unit Tests with Catch - starter code
 //
 #define CATCH_CONFIG_MAIN  // This line tells Catch to provide a main() function
+#define CATCH_CONFIG_NO_POSIX_SIGNALS
                            // - do this in one cpp file only
 #include "catch.hpp"       // This line provides access to all Catch macros
                            // - do not modify catch.hpp
