@@ -21,7 +21,7 @@ TEST_CASE("multimap unit test1", "[multimap]") {
 	m.insert(std::pair<std::string, std::string>("Mason","Marcus"));
 	m.insert(std::pair<std::string, std::string>("Doe","John"));
 	REQUIRE(m.size() == 3);
-	REQUIRE(m.count("Mason") == 2);
+	REQUIRE(m.count("Mason") == 1);
 	REQUIRE(m.count("Doe") ==1);
 }
 TEST_CASE("Assignment Testing ", "[multimap]"){
@@ -32,7 +32,7 @@ TEST_CASE("Assignment Testing ", "[multimap]"){
 	std::multimap<int, std::string> m2;
 	m2 = m1;
 	REQUIRE(m2.size() == m1.size());
-	REQUIRE(m2.count(1) == 1);
+	REQUIRE(m2.count(1) == 0);
 	REQUIRE(m1.count(2) == 2);
 	m2.insert(std::pair<int, std::string>(1, "one"));
 	REQUIRE(m1.size() == 3);
@@ -43,8 +43,8 @@ TEST_CASE("Empty/Clear/Size Testing", "[multimap]"){
 	std::multimap<char, int> m;
 		REQUIRE(m.empty());
 		REQUIRE(m.size() == 0);
-		m.insert(std::pair<int, int>(1,2));
-		m.insert(std::pair<int,int>(3,4));
+		m.insert(std::pair<char, int>('M',2));
+		m.insert(std::pair<char,int>('M',4));
 		REQUIRE_FALSE(m.empty());
 		REQUIRE(m.size() == 2);
 		m.clear();
@@ -61,7 +61,7 @@ TEST_CASE("Insert/count testing", "[multimap]"){
 	REQUIRE(m.size() == 4);
 	REQUIRE(m.count('A') == 3);
 		REQUIRE(m.count('B') ==1);
-	REQUIRE(m.count('C') == 3);
+	REQUIRE(m.count('C') == 0);
 
 
 }
